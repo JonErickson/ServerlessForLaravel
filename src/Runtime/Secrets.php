@@ -17,7 +17,8 @@ class Secrets
     {
         // Get all env vars from SSM and add them to our environment
         return tap(
-            static::all($path), function ($variables) {
+            static::all($path),
+            function ($variables) {
                 foreach ($variables as $key => $value) {
                     fwrite(STDERR, "> Environment Bootstrap: Adding $key".PHP_EOL);
                     $_ENV[$key] = $value;
@@ -45,7 +46,8 @@ class Secrets
 
         // Fetch the parameters
         $results = $ssm->getPaginator(
-            'GetParametersByPath', [
+            'GetParametersByPath',
+            [
             'Path' => $path,
             'WithDecryption' => true,
             ]
@@ -58,7 +60,8 @@ class Secrets
                 static::parseSecrets(
                     $path,
                     $result['Parameters'] ?? []
-                ), $secrets
+                ),
+                $secrets
             );
         }
 

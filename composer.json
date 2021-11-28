@@ -1,5 +1,5 @@
 {
-    "name": "jonerickson/serverless-for-laravel",
+    "name": "jonerickson/serverlessforlaravel",
     "license": "MIT",
     "type": "project",
     "description": "A package to provide Serverless support for Laravel projects.",

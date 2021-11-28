@@ -54,8 +54,8 @@ class StorageDirectories
         ];
 
         // Loop through each and set as an env var
-        foreach($map as $key => $value) {
-            if(empty($_ENV[$key])) {
+        foreach ($map as $key => $value) {
+            if (empty($_ENV[$key])) {
                 fwrite(STDERR, "> Storage Bootstrap: Setting $key to $value".PHP_EOL);
                 $_ENV[$key] = $value;
             }
