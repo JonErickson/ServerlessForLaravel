@@ -17,12 +17,12 @@ use Illuminate\Contracts\Console\Kernel as ConsoleKernelContract;
 
 // Make sure the SSM path is declared
 if(!empty($_ENV['APP_SECRETS_SSM_PATH'])) {
-	fwrite(STDERR, 'Preparing to add secrets to runtime'.PHP_EOL);
+    fwrite(STDERR, 'Preparing to add secrets to runtime'.PHP_EOL);
 
-	// Add the secrets to our environment
-	$secrets = Secrets::addToEnvironment(
-		$_ENV['APP_SECRETS_SSM_PATH']
-	);
+    // Add the secrets to our environment
+    $secrets = Secrets::addToEnvironment(
+        $_ENV['APP_SECRETS_SSM_PATH']
+    );
 }
 
 /*
@@ -55,13 +55,15 @@ StorageDirectories::configureEnvironmentVariables();
 $appRoot = getenv('LAMBDA_TASK_ROOT');
 
 // Update laravel to use the new path for storage
-with(require $appRoot.'/bootstrap/app.php', function ($app) {
+with(
+    require $appRoot.'/bootstrap/app.php', function ($app) {
 
-	// Tell laravel to use the new storage path
-	$app->useStoragePath(StorageDirectories::PATH);
+        // Tell laravel to use the new storage path
+        $app->useStoragePath(StorageDirectories::PATH);
 
-	fwrite(STDERR, 'Caching Laravel configuration'.PHP_EOL);
+        fwrite(STDERR, 'Caching Laravel configuration'.PHP_EOL);
 
-	// Cache our configuration
-	$app->make(ConsoleKernelContract::class)->call('config:cache');
-});
+        // Cache our configuration
+        $app->make(ConsoleKernelContract::class)->call('config:cache');
+    }
+);
