@@ -1,0 +1,36 @@
+{
+    "name": "jonerickson/serverless-for-laravel",
+    "license": "MIT",
+    "type": "project",
+    "description": "A package to provide Serverless support for Laravel projects.",
+    "keywords": ["bref", "serverless", "lambda", "laravel", "vapor"],
+    "require": {
+        "illuminate/support": "~5.8.0|^6.0|^7.0|^8.0|^9.0",
+        "illuminate/contracts": "~5.8.0|^6.0|^7.0|^8.0|^9.0",
+        "illuminate/pipeline": "~5.8.0|^6.0|^7.0|^8.0|^9.0",
+        "illuminate/http": "~5.8.0|^6.0|^7.0|^8.0|^9.0",
+        "php": "^7.4|^8.0",
+        "bref/bref": "^1.4",
+        "aws/aws-sdk-php": "^3.204"
+    },
+    "autoload": {
+        "psr-4": {
+            "JonErickson\\ServerlessForLaravel\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "JonErickson\\ServerlessForLaravel\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "JonErickson\\ServerlessForLaravel\\ServerlessForLaravelServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    }
+}

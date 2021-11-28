@@ -1,0 +1,5 @@
+.idea
+vendor
+export/*.zip
+.phpunit.result.cache
+.env
