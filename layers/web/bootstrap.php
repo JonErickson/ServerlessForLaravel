@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
+use Bref\Event\Http\FpmHandler;
 use Bref\Runtime\LambdaRuntime;
-use Bref\Runtime\PhpFpm;
 
 // Display all errors
 ini_set('display_errors', '1');
@@ -24,7 +24,7 @@ if (! is_file($handler)) {
 }
 
 // New PHP-FPM instance
-$phpFpm = new PhpFpm($handler);
+$phpFpm = new FpmHandler($handler);
 
 // Try and start
 try {
@@ -35,18 +35,5 @@ try {
 
 // Handle invocation requests
 while (true) {
-	$lambdaRuntime->processNextEvent(function ($event) use ($phpFpm): array {
-		$response = $phpFpm->proxy($event);
-
-		$multiHeader = array_key_exists('multiValueHeaders', $event);
-		return $response->toApiGatewayFormat($multiHeader);
-	});
-
-	// Make sure PHP is still running, echo out the exception message if it stops
-	try {
-		$phpFpm->ensureStillRunning();
-	} catch (\Throwable $e) {
-		echo $e->getMessage();
-		exit(1);
-	}
+	$lambdaRuntime->processNextEvent($phpFpm);
 }
