@@ -1,7 +1,7 @@
 {
     "name": "jonerickson/serverlessforlaravel",
     "license": "MIT",
-    "type": "project",
+    "type": "composer",
     "description": "A package to provide Serverless support for Laravel projects.",
     "keywords": ["bref", "serverless", "lambda", "laravel", "vapor"],
     "require": {
