@@ -5,7 +5,7 @@ provider:
   runtime: provided.al2
   region: us-west-2
   stage: production
-  enviroment:
+  environment:
     APP_ENV: production
     APP_SECRETS_SSM_PATH: /app/
     LOG_CHANNEL: stderr
