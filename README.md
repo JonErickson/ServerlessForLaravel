@@ -24,7 +24,18 @@ composer require jonerickson/serverlessforlaravel
 php artisan vendor:publish --provider="JonErickson\ServerlessForLaravel\ServerlessForLaravelProvider"   
 ```   
 
-4. **Deploy to AWS**
+4. **Update serverless.yaml**
+
+```bash   
+laravel:  
+ name: function-name  
+ handler: public/index.php  
+ timeout: 120  
+ layers:  
+ - {Layer ARN from list below}  
+```
+
+5. **Deploy to AWS**
 
 ```bash   
 serverless deploy   
