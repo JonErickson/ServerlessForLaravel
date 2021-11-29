@@ -69,6 +69,14 @@ This feature will take precedence over any environment variables declared in you
 APP_SECRETS_SSM_PATH=/app/
 ```  
 
+### Console/CLI/Artisan
+
+Because this package is built on bref, executing an artisan command is easy.
+
+```bash   
+vendor/bin/bref cli [--region] [--profile] <function-name> -- <command>
+```  
+
 ### Under The Hood
 
 What does this package do? Our published layers are built on top of bref's official PHP FPM [Docker images](https://hub.docker.com/u/bref). We simply tell bref's bootstrap file to also require a Laravel specific bootstrap file that does all the magic. You can view the laravelBootstrap.php file in /layers/fpm. This Laravel bootstrap file loads all applicable environment variables from AWS SSM, configure's Laravel to use /tmp (the only writable folder on AWS Lambda) as the storage and cache folder for all pertinent paths and cache's the configuration on each instance startup. After the Laravel bootstrapping has finished, bref takes back over and initializes their FPM handler to serve the requests.
