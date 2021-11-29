@@ -49,3 +49,14 @@ You can publish the layers that we use to deploy Laravel to your own AWS account
 ```bash  
 cd layers && make  
 ```
+
+2**Update serverless.yaml**
+
+```bash  
+laravel:
+    name: function-name
+    handler: public/index.php
+    timeout: 120
+    layers:
+      - {new layer ARN}
+```
