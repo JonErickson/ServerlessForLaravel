@@ -18,13 +18,12 @@ class StorageDirectories
      */
     public static function createDirectories(): void
     {
-
         // Define the directories to be created
         $directories = [
-        self::PATH.'/app',
-        self::PATH.'/bootstrap/cache',
-        self::PATH.'/framework/cache',
-        self::PATH.'/framework/views',
+	        self::PATH.'/app',
+	        self::PATH.'/bootstrap/cache',
+	        self::PATH.'/framework/cache',
+	        self::PATH.'/framework/views',
         ];
 
         // Loop through each directoy and create it
@@ -41,16 +40,14 @@ class StorageDirectories
      */
     public static function configureEnvironmentVariables(): void
     {
-
         // Define map of env var to folder path
         $map = [
-        'APP_SERVICES_CACHE' => self::PATH.'/bootstrap/cache/services.php',
-        'APP_PACKAGES_CACHE' => self::PATH.'/bootstrap/cache/packages.php',
-        'APP_CONFIG_CACHE'   => self::PATH.'/bootstrap/cache/config.php',
-        'APP_ROUTES_CACHE'   => self::PATH.'/bootstrap/cache/routes.php',
-        'APP_EVENTS_CACHE'   => self::PATH.'/bootstrap/cache/events.php',
-        'VIEW_COMPILED_PATH' => self::PATH.'/framework/views',
-
+	        'APP_SERVICES_CACHE' => self::PATH.'/bootstrap/cache/services.php',
+	        'APP_PACKAGES_CACHE' => self::PATH.'/bootstrap/cache/packages.php',
+	        'APP_CONFIG_CACHE'   => self::PATH.'/bootstrap/cache/config.php',
+	        'APP_ROUTES_CACHE'   => self::PATH.'/bootstrap/cache/routes.php',
+	        'APP_EVENTS_CACHE'   => self::PATH.'/bootstrap/cache/events.php',
+	        'VIEW_COMPILED_PATH' => self::PATH.'/framework/views',
         ];
 
         // Loop through each and set as an env var

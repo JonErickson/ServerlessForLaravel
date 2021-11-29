@@ -37,21 +37,16 @@ class Secrets
     protected static function all($path)
     {
         // Initialize SSM client
-        $ssm = SsmClient::factory(
-            [
+        $ssm = SsmClient::factory([
             'region' => $_ENV['AWS_DEFAULT_REGION'],
             'version' => 'latest',
-            ]
-        );
+        ]);
 
         // Fetch the parameters
-        $results = $ssm->getPaginator(
-            'GetParametersByPath',
-            [
+        $results = $ssm->getPaginator('GetParametersByPath', [
             'Path' => $path,
             'WithDecryption' => true,
-            ]
-        );
+        ]);
 
         // Parse the secrets
         $secrets = [];
