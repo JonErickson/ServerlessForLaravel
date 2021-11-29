@@ -50,7 +50,7 @@ You can publish the layers that we use to deploy Laravel to your own AWS account
 cd layers && make  
 ```
 
-2**Update serverless.yaml**
+2. **Update serverless.yaml**
 
 ```bash  
 laravel:
