@@ -1,5 +1,4 @@
 .idea
 vendor
-export/*
 .phpunit.result.cache
 .env

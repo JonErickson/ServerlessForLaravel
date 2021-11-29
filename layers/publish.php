@@ -1,17 +1,19 @@
 <?php
 
 use Aws\Lambda\LambdaClient;
-use Symfony\Component\Process\Process;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
 // Define our layer names and descriptions
 $layers = [
-    'serverless-for-laravel-cli' => 'Laravel Bootstrap for Bref running in Console',
-    'serverless-for-laravel-web' => 'Laravel Bootstrap for Bref running in FPM',
+	'php-73-fpm-laravel' => 'Bref PHP 7.3 FPM for Laravel web applications',
+	'php-74-fpm-laravel' => 'Bref PHP 7.4 FPM for Laravel web applications',
+	'php-80-fpm-laravel' => 'Bref PHP 8.0 FPM for Laravel web applications',
+	'php-81-fpm-laravel' => 'Bref PHP 8.1 FPM for Laravel web applications',
+	'cli' => 'Bref Console runtime for Laravel web applications',
 ];
 
-/// Define the regions we want to publish to
+// Define the regions we want to publish to
 $regions = [
     "us-west-2"
 ];
@@ -29,12 +31,10 @@ foreach ($layers as $layer => $layerDescription) {
 foreach ($regions as $region) {
 
     // Initialize the lambda client
-    $lambda = new LambdaClient(
-        [
+    $lambda = new LambdaClient([
         'region' => $region,
         'version' => 'latest',
-        ]
-    );
+    ]);
 
     // Get the layers to publish (cli and web)
     $layersToPublish = isset($argv[1]) ? [$argv[1] => $layers[$argv[1]]] : $layers;
@@ -46,27 +46,24 @@ foreach ($regions as $region) {
         $file = __DIR__ . "/export/$layer.zip";
 
         // Publish the later
-        $publishResponse = $lambda->publishLayerVersion(
-            [
+        $publishResponse = $lambda->publishLayerVersion([
             'LayerName' => $layer,
             'Description' => $description,
             'LicenseInfo' => 'MIT',
+            'CompatibleRuntimes' => ['provided.al2'],
             'Content' => [
-            'ZipFile' => file_get_contents($file),
-            ],
+                'ZipFile' => file_get_contents($file),
             ]
-        );
+        ]);
 
         // Add the layer permissions
-        $lambda->addLayerVersionPermission(
-            [
+        $lambda->addLayerVersionPermission([
             'Action' => 'lambda:GetLayerVersion',
             'LayerName' => $layer,
             'Principal' => '*',
             'StatementId' => (string) time(),
             'VersionNumber' => (string) $publishResponse['Version'],
-            ]
-        );
+        ]);
 
         // Output the response
         echo '['.$region.']: '.$publishResponse['LayerVersionArn'].PHP_EOL;
