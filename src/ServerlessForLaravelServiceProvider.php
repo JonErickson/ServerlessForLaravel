@@ -18,7 +18,7 @@ class ServerlessForLaravelServiceProvider extends ServiceProvider
 		if ($this->app->runningInConsole()) {
 			$this->publishes([
 				__DIR__.'/../config/serverless.yml' => $this->app['path.base'].DIRECTORY_SEPARATOR.'serverless.yml',
-			]);
+			], 'serverlessforlaravel');
 		}
 	}
 
