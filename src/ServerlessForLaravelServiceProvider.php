@@ -7,6 +7,21 @@ use Illuminate\Support\ServiceProvider;
 
 class ServerlessForLaravelServiceProvider extends ServiceProvider
 {
+	/**
+	 * Register the service provider.
+	 *
+	 * @return void
+	 */
+	public function register()
+	{
+		// Publush the serverless.yml config file
+		if ($this->app->runningInConsole()) {
+			$this->publishes([
+				__DIR__.'/../config/serverless.yml' => $this->app['path.base'].DIRECTORY_SEPARATOR.'serverless.yml',
+			]);
+		}
+	}
+
     /**
      * Bootstrap any application services.
      *

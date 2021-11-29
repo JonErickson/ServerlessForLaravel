@@ -2,29 +2,29 @@
 
 # Serverless For Laravel
 
-Deploy your Laravel application to AWS Lambda using this Laravel-ready plug-an-play package. Serverless For Laravel is built directly on the popular [bref/bref](https://github.com/brefphp/bref) runtime for AWS Lambda and takes care of the heavy loading of making sure Laravel is compatible in a FaaS environment.
+Deploy your [Serverless](https://www.serverless.com) Laravel application to AWS Lambda using this Laravel-ready plug-an-play package. Serverless For Laravel is built directly on the popular [bref/bref](https://github.com/brefphp/bref) runtime for AWS Lambda and takes care of the heavy loading of making sure Laravel is compatible in a FaaS environment.
 
 ## Quick Start
 
 1. **Install Serverless**
 
 ```bash   
-npm install -g severless   
+npm install -g severless
 ```   
 
 2. **Install Package via Composer**
 
 ```bash   
-composer require jonerickson/serverlessforlaravel   
+composer require jonerickson/serverlessforlaravel
 ```   
 
 3. **Publish serverless.yml**
 
 ```bash   
-php artisan vendor:publish --provider="JonErickson\ServerlessForLaravel\ServerlessForLaravelProvider"   
+php artisan vendor:publish --provider="JonErickson\ServerlessForLaravel\ServerlessForLaravelProvider"
 ```   
 
-4. **Update serverless.yaml**
+4. **Update serverless.yml**
 
 ```bash   
 laravel:  
@@ -38,7 +38,7 @@ laravel:
 5. **Deploy to AWS**
 
 ```bash   
-serverless deploy   
+serverless deploy
 ```   
 
 ### Layer ARN's
@@ -83,7 +83,7 @@ You can publish the layers that we use to deploy Laravel to your own AWS account
 cd layers && make   
 ```  
 
-2. **Update serverless.yaml**
+2. **Update serverless.yml**
 
 ```bash   
 laravel:  

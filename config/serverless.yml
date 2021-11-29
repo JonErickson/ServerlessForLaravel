@@ -1,0 +1,29 @@
+service: laravel
+
+provider:
+  name: aws
+  runtime: provided
+  region: us-west-2
+  enviroment:
+    APP_ENV: production
+    LOG_CHANNEL: stderr
+
+functions:
+  web:
+    handler: public/index.php
+    description: FPM Handler for Laravel
+    timeout: 28
+    layers:
+      - arn:aws:lambda:us-west-2:369512654573:layer:php-80-fpm-laravel:4
+    events:
+      - httpApi: '*'
+  cli:
+    handler: artisan
+    description: CLI for Laravel
+    timeout: 120
+    layers:
+      - ${bref:layer.php-80}
+      - arn:aws:lambda:us-west-2:369512654573:layer:cli:2
+
+plugins:
+  - ./vendor/bref/bref
