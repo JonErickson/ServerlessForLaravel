@@ -2,7 +2,7 @@ service: laravel
 
 provider:
   name: aws
-  runtime: provided
+  runtime: provided.al2
   region: us-west-2
   enviroment:
     APP_ENV: production
