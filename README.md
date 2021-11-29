@@ -21,7 +21,7 @@ composer require jonerickson/serverlessforlaravel
 3. **Publish serverless.yml**
 
 ```bash   
-php artisan vendor:publish --provider="JonErickson\ServerlessForLaravel\ServerlessForLaravelProvider"
+php artisan vendor:publish --tag="serverlessforlaravel"
 ```   
 
 4. **Update serverless.yml**
