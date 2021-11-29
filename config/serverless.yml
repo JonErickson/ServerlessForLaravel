@@ -9,6 +9,15 @@ provider:
     APP_ENV: production
     APP_SECRETS_SSM_PATH: /app/
     LOG_CHANNEL: stderr
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - 'ssm:Describe*'
+            - 'ssm:Get*'
+            - 'ssm:List*'
+          Resource: '*'
 
 functions:
   web:
