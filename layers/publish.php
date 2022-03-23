@@ -6,6 +6,13 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 // Define our layer names and descriptions
 $layers = [
+	'php-73-laravel' => 'Bref PHP 7.3 for Laravel event driven applications',
+	'php-73-fpm-laravel' => 'Bref PHP 7.3 FPM for Laravel web applications',
+	'php-74-laravel' => 'Bref PHP 7.4 for Laravel event driven applications',
+	'php-74-fpm-laravel' => 'Bref PHP 7.4 FPM for Laravel web applications',
+	'php-80-laravel' => 'Bref PHP 8.0 for Laravel event driven applications',
+	'php-80-fpm-laravel' => 'Bref PHP 8.0 FPM for Laravel web applications',
+	'php-81-laravel' => 'Bref PHP 8.1 for Laravel event driven applications',
 	'php-81-fpm-laravel' => 'Bref PHP 8.1 FPM for Laravel web applications',
 	'cli' => 'Bref Console runtime for Laravel web applications',
 ];
