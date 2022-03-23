@@ -38,23 +38,23 @@ The following is a list of publicly available layer ARN's for your Laravel Appli
 ##### PHP FPM Handler for Web Applications:
 | ARN | Current Version |    
 |--|--|    
-| arn:aws:lambda:us-west-2:037826224314:layer:php-73-fpm-laravel:1 | 1 |    
-| arn:aws:lambda:us-west-2:037826224314:layer:php-74-fpm-laravel:1 | 1 |    
-| arn:aws:lambda:us-west-2:037826224314:layer:php-80-fpm-laravel:1 | 1 |    
-| arn:aws:lambda:us-west-2:037826224314:layer:php-81-fpm-laravel:1 | 1 |
+| arn:aws:lambda:us-west-2:037826224314:layer:php-73-fpm-laravel:3 | 3 |    
+| arn:aws:lambda:us-west-2:037826224314:layer:php-74-fpm-laravel:3 | 3 |    
+| arn:aws:lambda:us-west-2:037826224314:layer:php-80-fpm-laravel:3 | 3 |    
+| arn:aws:lambda:us-west-2:037826224314:layer:php-81-fpm-laravel:3 | 3 |
 
 ##### PHP Function Handler for Event-Driven Applications:
 | ARN | Current Version |    
 |--|--|    
-| arn:aws:lambda:us-west-2:037826224314:layer:php-73-laravel:1 | 1 |    
-| arn:aws:lambda:us-west-2:037826224314:layer:php-74-laravel:1 | 1 |    
-| arn:aws:lambda:us-west-2:037826224314:layer:php-80-laravel:1 | 1 |    
-| arn:aws:lambda:us-west-2:037826224314:layer:php-81-laravel:1 | 1 |
+| arn:aws:lambda:us-west-2:037826224314:layer:php-73-laravel:3 | 3 |    
+| arn:aws:lambda:us-west-2:037826224314:layer:php-74-laravel:3 | 3 |    
+| arn:aws:lambda:us-west-2:037826224314:layer:php-80-laravel:3 | 3 |    
+| arn:aws:lambda:us-west-2:037826224314:layer:php-81-laravel:3 | 3 |
 
 ##### CLI:
 | ARN | Current Version |    
 |--|--|    
-| arn:aws:lambda:us-west-2:037826224314:layer:cli:1 | 1 |
+| arn:aws:lambda:us-west-2:037826224314:layer:cli:3 | 3 |
 
 ### Configuration/Documentation
 
