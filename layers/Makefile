@@ -6,7 +6,7 @@ publish: layers
 	php publish.php
 
 # Build the layers
-layers: export/console.zip export/php-73-fpm-laravel.zip export/php-74-fpm-laravel.zip export/php-80-fpm-laravel.zip export/php-81-fpm-laravel.zip
+layers: export/console.zip export/php-73-laravel.zip export/php-74-laravel.zip export/php-80-laravel.zip export/php-81-laravel.zip export/php-73-fpm-laravel.zip export/php-74-fpm-laravel.zip export/php-80-fpm-laravel.zip export/php-81-fpm-laravel.zip
 
 # The PHP runtimes
 export/php%.zip: docker-images
@@ -30,6 +30,11 @@ export/console.zip: cli/bootstrap
 
 # Build Docker images
 docker-images:
+	# Function images
+	cd function ; docker build -t jonerickson/php-73-laravel --build-arg PHP_VERSION=73 .
+	cd function ; docker build -t jonerickson/php-74-laravel --build-arg PHP_VERSION=74 .
+	cd function ; docker build -t jonerickson/php-80-laravel --build-arg PHP_VERSION=80 .
+	cd function ; docker build -t jonerickson/php-81-laravel --build-arg PHP_VERSION=81 .
 	# FPM images
 	cd fpm ; docker build -t jonerickson/php-73-fpm-laravel --build-arg PHP_VERSION=73 .
 	cd fpm ; docker build -t jonerickson/php-74-fpm-laravel --build-arg PHP_VERSION=74 .

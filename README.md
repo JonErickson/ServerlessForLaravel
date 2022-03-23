@@ -35,18 +35,26 @@ serverless [--region] [--profile] deploy
 
 The following is a list of publicly available layer ARN's for your Laravel Application. Make sure to use replace the region in the ARN with the region your application is deployed to and choose the correct PHP version your application is using.
 
-##### PHP FPM Handler:
+##### PHP FPM Handler for Web Applications:
 | ARN | Current Version |    
 |--|--|    
-| arn:aws:lambda:us-west-2:369512654573:layer:php-73-fpm-laravel:4 | 4 |    
-| arn:aws:lambda:us-west-2:369512654573:layer:php-74-fpm-laravel:4 | 4 |    
-| arn:aws:lambda:us-west-2:369512654573:layer:php-80-fpm-laravel:4 | 4 |    
-| arn:aws:lambda:us-west-2:369512654573:layer:php-81-fpm-laravel:4 | 4 |
+| arn:aws:lambda:us-west-2:037826224314:layer:php-73-fpm-laravel:1 | 1 |    
+| arn:aws:lambda:us-west-2:037826224314:layer:php-74-fpm-laravel:1 | 1 |    
+| arn:aws:lambda:us-west-2:037826224314:layer:php-80-fpm-laravel:1 | 1 |    
+| arn:aws:lambda:us-west-2:037826224314:layer:php-81-fpm-laravel:1 | 1 |
+
+##### PHP Function Handler for Event-Driven Applications:
+| ARN | Current Version |    
+|--|--|    
+| arn:aws:lambda:us-west-2:037826224314:layer:php-73-laravel:1 | 1 |    
+| arn:aws:lambda:us-west-2:037826224314:layer:php-74-laravel:1 | 1 |    
+| arn:aws:lambda:us-west-2:037826224314:layer:php-80-laravel:1 | 1 |    
+| arn:aws:lambda:us-west-2:037826224314:layer:php-81-laravel:1 | 1 |
 
 ##### CLI:
 | ARN | Current Version |    
 |--|--|    
-| arn:aws:lambda:us-west-2:369512654573:layer:cli:2 | 2 |
+| arn:aws:lambda:us-west-2:037826224314:layer:cli:1 | 1 |
 
 ### Configuration/Documentation
 
